@@ -19,6 +19,12 @@
 	font-display: swap;
 } */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .page {
 	height: 100%;
 
@@ -43,6 +49,17 @@ body{
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 /* Button */
 .button {
 	color: #ffffff;
@@ -54,6 +71,12 @@ body{
 	text-align: center;
 	text-transform: uppercase;
 	text-decoration: none;
+}
+
+.button-secondary {
+	margin: 13px 0;
+	margin-left: 20px;
+
 }
 
 .button-secondary, .search-button, .button-large{
@@ -73,27 +96,51 @@ body{
 	line-height: 26px;
 }
 
+.icon-button {
+	outline: auto;
+	display: block;
+	width: 42px;
+	height: 42px;
+}
+
 /* Header */
 .site-menu{
-	margin: 0;
+	display: flex;
+	margin: 0 30px;
 	padding: 0;
-	width: 500px;
+	flex-wrap: wrap;
+	flex-grow: 1;
+
+
+	list-style-type: none;
 
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 26px;
 }
 
-.logo {
-	margin-right: 30px;
+.site-menu-item {
+	display: flex;
+	align-items: center;
 }
 
 .user-menu {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
 	max-width: 306px;
 	margin-left: auto;
+	flex-shrink: 0;
+}
+
+.user-menu-button{
+	margin-left: 20px;
 }
 
 .site-menu-link{
+	display: block;
+	padding: 17px;
+
 	color: #000000;
 	text-decoration: none;
 }
@@ -130,6 +177,7 @@ body{
 
 .inner-main-header {
 	margin: 0;
+	margin-bottom: 5px;
 
 	font-weight: 700;
 	font-size: 60px;
@@ -137,10 +185,25 @@ body{
 }
 
 .breadcrumbs{
+	display: flex;
+	flex-wrap: wrap;
+
+	list-style-type: none;
+
 	margin: 0;
 	padding: 0;
+	margin-bottom: 45px;
 
 	font-size: 16px;
+}
+
+.breadcrumbs-item-home {
+	width: 12px;
+	height: 21px;
+}
+
+.breadcrumbs-item {
+	margin-right: 16px;
 }
 
 /* Filter */
@@ -149,6 +212,8 @@ body{
 }
 
 .filter-list {
+	list-style-type: none;
+
 	margin: 0;
 	padding: 0;
 }
@@ -214,12 +279,14 @@ body{
 
 .catalog-sort {
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
+	padding: 44px 0 53px;
 }
 
 .catalog-title {
 	margin: 0;
 	width: 50%;
+	padding-right: 30px;
 }
 
 .catalog-select {
@@ -228,9 +295,26 @@ body{
 }
 
 .view {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 224px;
   margin: 0;
   padding: 0;
+
+	list-style-type: none;
 }
+
+.view-link {
+	display: block;
+	width: 48px;
+	height: 48px;
+}
+
+.view-item {
+	outline: auto;
+	margin: 2px 4px;
+}
+
 
 /* Card */
 .card-title {
@@ -251,22 +335,40 @@ body{
 }
 
 /* Pagination */
+.pagination {
+	padding: 30px 0;
+}
+
+.select-label {
+	margin: 0;
+	margin-right: 50px;
+
+}
+
 .pagination-nav {
 	display: flex;
 	justify-content: space-between;
+	margin-top: 30px;
 }
 
 .pagination-list {
 	display: flex;
+	flex-wrap: wrap;
 	margin: 0;
 	padding: 0;
+
+	list-style-type: none;
 }
 
 .pagination-select {
 	display: flex;
+	align-items: center;
+	margin-left: 30px;
 }
 
 .pagination-item {
+	margin: 2px 4px 2px;
+
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 26px;
@@ -274,9 +376,15 @@ body{
 }
 
 .pagination-link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 55px;
+	height: 55px;
+
+	border-radius: 4px;
 	background-color: #83B3D3;
 	color: #ffffff;
-	text-align: center;
 	text-decoration: none;
 }
 
@@ -288,15 +396,31 @@ body{
 /* Footer */
 .page-footer {
 	display: flex;
+	align-items: center;
 	width: 1060px;
 	margin: 0 auto;
+	padding: 40px 0 30px;
 	justify-content: space-between;
 }
 
 .page-footer-social {
+	list-style-type: none;
+	display: flex;
+	flex-wrap: wrap;
 	margin: 0;
 	padding: 0;
-	min-width: 107px;
+	width: 135px;
+}
+
+.social-item {
+	margin: 0 2px;
+}
+
+.social-link {
+	outline: auto;
+	display: block;
+	width: 40px;
+	height: 40px;
 }
 
 .footer-phone{
@@ -316,6 +440,8 @@ body{
 /* Section */
 
 .section-title{
+
+
 	font-weight: 700;
 	font-size: 30px;
 	line-height: 36px;
@@ -340,6 +466,8 @@ body{
 .advantages-list {
 	margin: 0;
 	padding: 0;
+
+	list-style-type: none;
 }
 
 .advantages-title{
