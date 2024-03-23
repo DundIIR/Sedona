@@ -247,7 +247,20 @@
 					<p class="section-title catalog-title">Найдено гостиниц: 38</p>
 
 					<h3 class="visually-hidden">Сортировка и отображение</h3>
-					<details class="select catalog-select">
+					<form class="catalog-select">
+						<div class="select">
+							<label class="visually-hidden" for="sorting">Сортировка</label>
+							<select class="select-control" id="sorting">
+								<option value="cheap">Сначала дешевые</option>
+								<option value="expensive">Сначала дорогие</option>
+								<option value="popular">Сначала популярные</option>
+							</select>
+						</div>
+						<button class="visually-hidden" type="submit">
+							Отсортировать продукты
+						</button>
+					</form>
+					<!-- <details class="select catalog-select">
 						<summary class="select-button">Сначала дешевые</summary>
 
 						<ul class="select-menu">
@@ -261,7 +274,7 @@
 								<a class="select-option" href="#">Сначала популярные</a>
 							</li>
 						</ul>
-					</details>
+					</details> -->
 					<ul class="view">
 						<li class="view-item view-item-active">
 							<a class="view-link view-icon-card">
@@ -403,8 +416,24 @@
 							</li>
 						</ul>
 						<div class="pagination-select">
-							<p class="select-label">Гостиниц на странице:</p>
-							<details class="select">
+							<!-- <p class="select-label">Гостиниц на странице:</p> -->
+							<label class="select-label" for="number-cards"
+								>Гостиниц на странице:</label
+							>
+							<form class="number-select">
+								<div class="select">
+									<select class="select-control" id="number-cards">
+										<option value="four">4</option>
+										<option value="six">6</option>
+										<option value="nine">9</option>
+										<option value="twelve">12</option>
+									</select>
+								</div>
+								<button class="visually-hidden" type="submit">
+									Сменить количество карточек на странице
+								</button>
+							</form>
+							<!-- <details class="select">
 								<summary class="select-button">4</summary>
 
 								<ul class="select-menu">
@@ -421,7 +450,7 @@
 										<a class="select-option" href="#">12</a>
 									</li>
 								</ul>
-							</details>
+							</details> -->
 						</div>
 					</div>
 				</div>
@@ -554,5 +583,143 @@
 				</svg>
 			</a>
 		</footer>
+
+		<div class="modal-container modal-container-close">
+			<div class="modal modal-search">
+				<button class="modal-close-button">
+					<span class="visually-hidden">Закрыть</span>
+				</button>
+
+				<section class="modal-content">
+					<h2 class="modal-title">Поиск гостиницы в Седоне</h2>
+					<form
+						class="search-form"
+						action="https://echo.htmlacademy.ru/"
+						method="post"
+					>
+						<p class="field-group">
+							<label class="search-form-label" for="start-date"
+								>Дата заезда:</label
+							>
+							<input
+								class="search-form-field field-input"
+								type="date"
+								id="start-date"
+								name="check-in-date"
+								required
+							/>
+
+							<span class="marking marking-error"
+								>Мы не можем отправить вас в прошлое.</span
+							>
+						</p>
+						<p class="field-group">
+							<label class="search-form-label" for="end-date"
+								>Дата выезда:</label
+							>
+							<input
+								class="search-form-field field-input"
+								type="date"
+								id="end-date"
+								name="check-out-date"
+								required
+							/>
+							<span class="marking"
+								>На эти даты есть свободные номера. Пока есть.</span
+							>
+						</p>
+						<div class="field-wrapper">
+							<div class="field-group">
+								<label class="search-form-label" for="adults">Взрослые:</label>
+
+								<div class="btn-wrapper">
+									<button class="button-counter minus">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="13"
+											height="1"
+											fill="#000"
+											viewBox="0 0 13 1"
+											opacity="0.3"
+										>
+											<path d="M0 0v1h13V0H0Z" />
+										</svg>
+									</button>
+									<input
+										class="search-form-field search-counter field-input"
+										type="number"
+										id="adults"
+										name="number-of-adults"
+										value="2"
+										min="1"
+										max="100"
+									/>
+									<button class="button-counter plus">
+										<svg
+											width="13"
+											height="13"
+											viewBox="0 0 13 13"
+											fill="#000"
+											opacity="0.3"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path d="M13 6H7V0H6V6H0V7H6V13H7V7H13V6Z" />
+										</svg>
+									</button>
+								</div>
+							</div>
+							<div class="field-group">
+								<label class="search-form-label" for="children">Дети:</label>
+								<button class="search-info-button" disabled>
+									<span class="search-info"></span>
+								</button>
+								<div class="btn-wrapper">
+									<button class="button-counter minus">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="13"
+											height="1"
+											fill="#000"
+											viewBox="0 0 13 1"
+											opacity="0.3"
+										>
+											<path d="M0 0v1h13V0H0Z" />
+										</svg>
+									</button>
+									<input
+										class="search-form-field search-counter field-input"
+										type="number"
+										id="auth-password"
+										name="number-of-children"
+										value="0"
+										min="0"
+										max="10"
+									/>
+									<button class="button-counter plus">
+										<svg
+											width="13"
+											height="13"
+											viewBox="0 0 13 13"
+											fill="#000"
+											opacity="0.3"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path d="M13 6H7V0H6V6H0V7H6V13H7V7H13V6Z" />
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<button
+							type="submit"
+							class="modal-button-search subscribe-button button"
+						>
+							Найти
+						</button>
+					</form>
+				</section>
+			</div>
+		</div>
 	</body>
 </html>
